@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Foundry
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
@@ -64,3 +65,12 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+=======
+# CodeMarketplace-DevDock
+
+
+eatures
+Users can list, buy, and sell code easily.
+Secure payment integration for transactions.
+Simple and user-friendly marketplace interface.
+>>>>>>> 91f88a9cb5ac0d1627d2d1f494d060f342c4d024
