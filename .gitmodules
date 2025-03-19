@@ -3,4 +3,4 @@
 	url = https://github.com/foundry-rs/forge-std
 [submodule "web3_coffee"]
     path = web3_coffee
-    url = https://github.com/beetlejusse/web3_coffee
+    url = https://github.com/beetlejusse/web3_coffee-devDock
