@@ -28,7 +28,7 @@ export default function LandingPage() {
       },
     },
   };
-//ppap
+
   if (!mounted) return null;
   return (
     <div className="flex flex-col min-h-screen">
@@ -102,7 +102,7 @@ function purchaseCode(uint256 _listingId) {
               variants={fadeIn}
               className="text-3xl md:text-4xl font-bold mb-4"
             >
-              Why Choose OpenCode?
+              Why Choose CodeMarketplace?
             </motion.h2>
             <motion.p
               variants={fadeIn}
@@ -181,7 +181,7 @@ function purchaseCode(uint256 _listingId) {
                 Ready to Share Your Code?
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                List your projects on OpenCode and start earning
+                List your projects on CodeMarketplace and start earning
                 cryptocurrency for your work.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
