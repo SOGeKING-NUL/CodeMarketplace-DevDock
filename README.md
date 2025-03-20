@@ -64,7 +64,7 @@ $ anvil --help
 $ cast --help
 ```
 =======
-# CodeMarketplace-DevDock
+# OpenCode-DevDock
 
 
 eatures

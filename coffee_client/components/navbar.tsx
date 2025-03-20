@@ -54,10 +54,10 @@ export default function Navbar() {
                 transition={{ duration: 0.5 }}
               >
                 <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-                  <span className="font-bold text-primary-foreground">CM</span>
+                  <span className="font-bold text-primary-foreground">OC</span>
                 </div>
               </motion.div>
-              <span className="font-bold text-xl">CodeMarketplace</span>
+              <span className="font-bold text-xl">OpenCode</span>
             </Link>
           </div>
 

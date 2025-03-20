@@ -102,7 +102,7 @@ function purchaseCode(uint256 _listingId) {
               variants={fadeIn}
               className="text-3xl md:text-4xl font-bold mb-4"
             >
-              Why Choose CodeMarketplace?
+              Why Choose OpenCode?
             </motion.h2>
             <motion.p
               variants={fadeIn}
@@ -181,7 +181,7 @@ function purchaseCode(uint256 _listingId) {
                 Ready to Share Your Code?
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                List your projects on CodeMarketplace and start earning
+                List your projects on OpenCode and start earning
                 cryptocurrency for your work.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

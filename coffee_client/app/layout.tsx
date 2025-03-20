@@ -8,7 +8,7 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "CodeMarketplace - Buy and Sell Code on the Blockchain",
+  title: "OpenCode - Buy and Sell Code on the Blockchain",
   description:
     "A decentralized marketplace for developers to monetize their code and for users to purchase quality projects.",
 }

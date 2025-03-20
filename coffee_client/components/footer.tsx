@@ -11,7 +11,7 @@ export default function Footer() {
               <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
                 <span className="font-bold text-primary-foreground">CM</span>
               </div>
-              <span className="font-bold text-xl">CodeMarketplace</span>
+              <span className="font-bold text-xl">OpenCode</span>
             </Link>
             <p className="text-muted-foreground max-w-md">
               A decentralized marketplace for developers to monetize their code and for users to purchase quality
@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} CodeMarketplace. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} OpenCode. All rights reserved.</p>
         </div>
       </div>
     </footer>

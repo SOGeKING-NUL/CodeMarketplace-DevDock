@@ -57,10 +57,10 @@ export default function DashboardPage() {
         const provider = new ethers.BrowserProvider(ethereum)
         const signer = await provider.getSigner()
 
-        const codeMarketplace = new ethers.Contract(CONTRACT_ADDRESS, contractABI, signer)
-        setContract(codeMarketplace)
+        const OpenCode = new ethers.Contract(CONTRACT_ADDRESS, contractABI, signer)
+        setContract(OpenCode)
 
-        fetchListings(codeMarketplace, accounts[0])
+        fetchListings(OpenCode, accounts[0])
       } catch (error) {
         console.error("Error initializing provider:", error)
         setLoading(false)

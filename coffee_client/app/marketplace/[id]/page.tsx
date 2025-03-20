@@ -50,19 +50,19 @@ export default function ListingDetailPage() {
           }
 
           const signer = await ethersProvider.getSigner()
-          const codeMarketplace = new ethers.Contract(address, contractABI, signer)
-          setContract(codeMarketplace)
+          const OpenCode = new ethers.Contract(address, contractABI, signer)
+          setContract(OpenCode)
 
-          fetchListing(codeMarketplace)
-          checkIfPurchased(codeMarketplace, accounts[0])
+          fetchListing(OpenCode)
+          checkIfPurchased(OpenCode, accounts[0])
         } else {
           // If no ethereum object, use a read-only provider
           const readOnlyProvider = new ethers.JsonRpcProvider("https://ethereum-goerli.publicnode.com")
 
-          const codeMarketplace = new ethers.Contract(address, contractABI, readOnlyProvider)
-          setContract(codeMarketplace)
+          const OpenCode = new ethers.Contract(address, contractABI, readOnlyProvider)
+          setContract(OpenCode)
 
-          fetchListing(codeMarketplace)
+          fetchListing(OpenCode)
         }
       } catch (error) {
         console.error("Error initializing provider:", error)

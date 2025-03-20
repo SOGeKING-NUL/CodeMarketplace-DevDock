@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-contract CodeMarketplace {
+contract OpenCode {
     struct CodeListing {
         uint256 id;
         address seller;
