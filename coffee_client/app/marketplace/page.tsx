@@ -103,7 +103,7 @@ const CodeListings = () => {
 
       // Redirect to dashboard's purchased code section
       setTimeout(() => {
-        router.push("/dashboard?purchased");
+        router.push("/dashboard");
       }, 3000);
     } catch (err) {
       console.error("Error during purchase:", err);
