@@ -13,8 +13,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Skeleton } from "@/components/ui/skeleton"
 import { contractABI } from "@/lib/contract-abi"
 
-// Contract address would be provided by the user
-const CONTRACT_ADDRESS = "0x0000000000000000000000000000000000000000"
+const CONTRACT_ADDRESS = "0x79f54161F4C7eD0A99b87F1be9E0835C18bcf9CF"
 
 type Listing = {
   id: number
@@ -64,8 +63,6 @@ export default function DashboardPage() {
       } catch (error) {
         console.error("Error initializing provider:", error)
         setLoading(false)
-        // For demo purposes, show mock data if contract interaction fails
-        setMockData()
       }
     }
 
@@ -112,48 +109,9 @@ export default function DashboardPage() {
     } catch (error) {
       console.error("Error fetching listings:", error)
       setLoading(false)
-      // For demo purposes, show mock data if contract interaction fails
-      setMockData()
     }
   }
 
-  const setMockData = () => {
-    setMyListings([
-      {
-        id: 1,
-        seller: "0x1234567890123456789012345678901234567890",
-        title: "E-commerce Platform with Next.js",
-        description: "A complete e-commerce solution built with Next.js, Tailwind CSS, and Stripe integration.",
-        deployedProjectUrl: "https://example.com/demo1",
-        githubRepoLink: "https://github.com/example/e-commerce-platform",
-        price: "0.5",
-        isActive: true,
-      },
-      {
-        id: 2,
-        seller: "0x1234567890123456789012345678901234567890",
-        title: "NFT Marketplace Template",
-        description: "A ready-to-use NFT marketplace template with minting, listing, and trading functionality.",
-        deployedProjectUrl: "https://example.com/demo2",
-        githubRepoLink: "https://github.com/example/nft-marketplace",
-        price: "0.8",
-        isActive: false,
-      },
-    ])
-
-    setPurchasedListings([
-      {
-        id: 3,
-        seller: "0x2345678901234567890123456789012345678901",
-        title: "DeFi Dashboard",
-        description: "A comprehensive DeFi dashboard for tracking investments, yields, and portfolio performance.",
-        deployedProjectUrl: "https://example.com/demo3",
-        githubRepoLink: "https://github.com/example/defi-dashboard",
-        price: "0.65",
-        isActive: true,
-      },
-    ])
-  }
 
   const toggleListingStatus = async (listingId: number, currentStatus: boolean) => {
     if (!contract) return
