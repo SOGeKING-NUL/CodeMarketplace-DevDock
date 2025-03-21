@@ -4,7 +4,14 @@ import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { contractABI } from "@/lib/contract-abi";
 import { contractAddress } from "@/lib/utils";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -30,7 +37,10 @@ const CodeListings = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState<boolean>(false);
-  const [notification, setNotification] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  const [notification, setNotification] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
 
   const router = useRouter();
 
@@ -68,7 +78,9 @@ const CodeListings = () => {
       setListings(allListings);
     } catch (error) {
       console.error("Error fetching listings:", error);
-      setError("Failed to fetch listings. Please make sure your wallet is connected and try again.");
+      setError(
+        "Failed to fetch listings. Please make sure your wallet is connected and try again."
+      );
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -83,7 +95,9 @@ const CodeListings = () => {
   const handlePurchase = async (listingId: number, priceInEth: string) => {
     try {
       if (!(window as any).ethereum) {
-        throw new Error("MetaMask not found! Please install MetaMask and try again.");
+        throw new Error(
+          "MetaMask not found! Please install MetaMask and try again."
+        );
       }
 
       const provider = new ethers.BrowserProvider((window as any).ethereum);
@@ -95,11 +109,16 @@ const CodeListings = () => {
       const priceInWei = ethers.parseEther(priceInEth);
 
       // Send transaction
-      const txResponse = await contract.purchaseCode(listingId, { value: priceInWei });
+      const txResponse = await contract.purchaseCode(listingId, {
+        value: priceInWei,
+      });
       await txResponse.wait(); // Wait for transaction to be mined
 
       // Show success notification
-      setNotification({ type: "success", message: "Purchase successful! Redirecting to dashboard..." });
+      setNotification({
+        type: "success",
+        message: "Purchase successful! Redirecting to dashboard...",
+      });
 
       // Redirect to dashboard's purchased code section
       setTimeout(() => {
@@ -108,8 +127,10 @@ const CodeListings = () => {
     } catch (err) {
       console.error("Error during purchase:", err);
       let errorMessage =
-        err instanceof Error ? err.message : "An unknown error occurred. Please try again.";
-      
+        err instanceof Error
+          ? err.message
+          : "An unknown error occurred. Please try again.";
+
       // Show error notification
       setNotification({ type: "error", message: errorMessage });
     }
@@ -117,7 +138,9 @@ const CodeListings = () => {
 
   // Truncate ethereum address for display
   const truncateAddress = (address: string) => {
-    return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
+    return `${address.substring(0, 6)}...${address.substring(
+      address.length - 4
+    )}`;
   };
 
   // Use effect to fetch listings when component mounts
@@ -129,17 +152,29 @@ const CodeListings = () => {
     <div className="container mx-auto py-8 px-4">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Code Listings</h1>
-        <Button onClick={handleRefresh} variant="outline" size="sm" disabled={loading || refreshing}>
-          <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? "animate-spin" : ""}`} />
+        <Button
+          onClick={handleRefresh}
+          variant="outline"
+          size="sm"
+          disabled={loading || refreshing}
+        >
+          <RefreshCw
+            className={`h-4 w-4 mr-2 ${refreshing ? "animate-spin" : ""}`}
+          />
           {refreshing ? "Refreshing..." : "Refresh"}
         </Button>
       </div>
 
       {/* Notification */}
       {notification && (
-        <Alert variant={notification.type === "success" ? "default" : "destructive"} className="mb-6">
+        <Alert
+          variant={notification.type === "success" ? "default" : "destructive"}
+          className="mb-6"
+        >
           <AlertCircle className="h-4 w-4" />
-          <AlertTitle>{notification.type === "success" ? "Success" : "Error"}</AlertTitle>
+          <AlertTitle>
+            {notification.type === "success" ? "Success" : "Error"}
+          </AlertTitle>
           <AlertDescription>{notification.message}</AlertDescription>
         </Alert>
       )}
@@ -175,8 +210,12 @@ const CodeListings = () => {
         </div>
       ) : listings.length === 0 ? (
         <div className="text-center py-12">
-          <h3 className="text-xl font-medium text-muted-foreground mb-2">No listings available</h3>
-          <p className="text-muted-foreground">Check back later or refresh to see new listings</p>
+          <h3 className="text-xl font-medium text-muted-foreground mb-2">
+            No listings available
+          </h3>
+          <p className="text-muted-foreground">
+            Check back later or refresh to see new listings
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -187,22 +226,38 @@ const CodeListings = () => {
                   <CardTitle>{listing.title}</CardTitle>
                   <Badge variant="secondary">{listing.price} ETH</Badge>
                 </div>
-                <CardDescription>By {truncateAddress(listing.seller)}</CardDescription>
+                <CardDescription>
+                  By {truncateAddress(listing.seller)}
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground text-sm line-clamp-3">{listing.description}</p>
+                <p className="text-muted-foreground text-sm line-clamp-3">
+                  {listing.description}
+                </p>
               </CardContent>
               {/* Full-width Buttons */}
               <CardFooter className="flex flex-col gap-3 pt-4">
                 {/* Demo Button */}
                 <Button asChild variant="outline" size="sm" className="w-full">
-                  <a href={listing.deployedProjectUrl} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={`${
+                      listing.deployedProjectUrl.startsWith("http")
+                        ? listing.deployedProjectUrl
+                        : `https://${listing.deployedProjectUrl}`
+                    }`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Demo
                   </a>
                 </Button>
 
                 {/* Buy Now Button */}
-                <Button size="sm" onClick={() => handlePurchase(listing.id, listing.price)} className="w-full">
+                <Button
+                  size="sm"
+                  onClick={() => handlePurchase(listing.id, listing.price)}
+                  className="w-full"
+                >
                   BUY NOW
                 </Button>
               </CardFooter>
