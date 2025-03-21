@@ -1,55 +1,66 @@
-# OpenCode: Decentralized Code Marketplace
+## Foundry
 
-Welcome to **OpenCode**, a decentralized marketplace for developers to monetize their code and for users to purchase high-quality projects. OpenCode leverages blockchain technology for secure, transparent, and trustless transactions, ensuring a seamless experience for both sellers and buyers.
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-## Features
+Foundry consists of:
 
-- **Create Listings**: Developers can list their projects with details like title, description, price, GitHub repository link, and a demo URL.
-- **Purchase Code**: Buyers can purchase code securely using ETH, with transactions managed by smart contracts.
-- **Dashboard**:
-  - Sellers can manage their listings (activate/deactivate).
-  - Buyers can view and access purchased code.
-- **Smart Contract**: Built on Solidity, the smart contract ensures transparency and security by handling all transactions and access permissions.
-- **Wallet Integration**: MetaMask or and evm supported wallet integration for connecting wallets and executing transactions.
-- **Responsive UI**: A modern, user-friendly interface built with React, Tailwind CSS, and Next.js.
+-   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+-   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+-   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+-   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
 
-## Live Demo
+## Documentation
 
-Test the application at: [OpenCode](https://open-code-ten.vercel.app/)
+https://book.getfoundry.sh/
 
-## How It Works
+## Usage
 
-1. **For Sellers**:
-   - Connect your wallet via MetaMask or any evm supported wallet.
-   - Navigate to the "Create Listing" page and provide project details.
-   - Manage your listings through the dashboard.
+### Build
 
-2. **For Buyers**:
-   - Browse available listings on the marketplace.
-   - Purchase code by clicking "BUY NOW" on a listing card.
-   - Access purchased code through the "Purchased Code" tab in the dashboard.
+```shell
+$ forge build
+```
 
-3. **Smart Contract Logic**:
-   - The smart contract ensures that payment is transferred to the seller only when the buyer successfully purchases a listing.
-   - Buyers gain access to the GitHub repository link after completing the transaction.
+### Test
 
-## Technologies Used
+```shell
+$ forge test
+```
 
-#### Frontend
-- **React**: For building a dynamic and responsive user interface.
-- **Next.js**: For server-side rendering and routing.
-- **Tailwind CSS**: For styling components with utility-first CSS classes.
-- **Framer Motion**: For smooth animations and transitions.
+### Format
 
-#### Backend
-- **Solidity**: Smart contract development for handling transactions and permissions on the Ethereum blockchain.
+```shell
+$ forge fmt
+```
 
-#### Blockchain
-- **Ethers.js**: For interacting with the Ethereum blockchain and smart contracts.
-- **Wallet**: Wallet integration for connecting users' Ethereum wallets.
+### Gas Snapshots
 
-## Smart Contract Overview
+```shell
+$ forge snapshot
+```
 
-The `CodeMarketplace` smart contract handles all core functionalities of OpenCode:
+### Anvil
 
-#### Structure:
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
+```
