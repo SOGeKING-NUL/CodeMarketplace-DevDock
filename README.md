@@ -2,6 +2,9 @@
 
 Welcome to **OpenCode**, a decentralized marketplace for developers to monetize their code and for users to purchase high-quality projects. OpenCode leverages blockchain technology for secure, transparent, and trustless transactions, ensuring a seamless experience for both sellers and buyers.
 
+![image](https://github.com/user-attachments/assets/291fc531-4253-4f4f-b56a-d37bcf5e05fd)
+
+
 ## Features
 
 - **Create Listings**: Developers can list their projects with details like title, description, price, GitHub repository link, and a demo URL.
