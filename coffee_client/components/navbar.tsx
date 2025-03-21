@@ -42,7 +42,7 @@ export default function Navbar() {
     <>
       {/* Beta Version Banner */}
       <div className="bg-green-500 text-black py-1 text-center">
-        Beta Version, please use Testnet for transactions.
+        Beta Version, please use Sepolia Testnet for transactions.
       </div>
 
       <header
